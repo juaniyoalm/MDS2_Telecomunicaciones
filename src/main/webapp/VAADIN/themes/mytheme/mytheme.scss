@@ -1,0 +1,126 @@
+// If you edit this file you need to compile the theme. See README.md for details.
+
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+
+@mixin mytheme {
+  @include valo;
+  
+    // Insert your own theme rules here
+  
+	$colorGeneral: black;
+	$anchoPagina: 1440px;
+	$altoPagina: 900px;
+	$anchoColumna: 200px;
+	$altoBarraNav: 160px;
+	$altoPaneles: 740px;
+  
+	* {
+		margin: 0 !important;
+		padding: 0 !important;
+	
+	}
+ 
+ 	body {
+ 	width: $anchoPagina !important;	
+ 	}
+
+	// ZonaComun.java
+	.layoutPrincipal {
+		height: auto !important;
+		width: $anchoPagina;
+		
+		.cabeceraComun {
+		 	background-color: $colorGeneral;
+		 	width: $anchoPagina !important;	
+		 	height: $altoBarraNav !important;
+		 	text-align: center !important;
+	 	}
+		
+		.layoutBloque {
+			height: auto;
+			width: $anchoPagina !important;
+		
+			.panelIzq {
+				margin: 0;
+				padding: 0;
+				width: $anchoColumna !important;
+				height: $altoPaneles !important;
+				background-color: black;
+				border-radius: 0;
+				border: none !important;
+			}
+	
+			.panelDer {
+				margin: 0;
+				padding: 0;
+				width: $anchoColumna !important;
+				height: $altoPaneles !important;
+				background-color: black;
+				border-radius: 0;
+				border: none !important;
+			}
+	
+			.panelCen {
+				margin: 0;
+				padding: 0;
+				width: 1040px !important;
+				height: $altoPaneles !important;
+				background-color: green;
+				border-radius: 0;
+				border: none !important;
+			}
+		} 
+	}
+
+
+	// Navbar.java
+	
+	.layotuNavbar {
+		background-color: white;
+		margin-top: 55px !important;
+		padding: 10px !important;
+		border-radius: 12px;
+		
+		.hLayotuNavbar{
+			background-color: white;
+			
+			.navbarBtn {
+				background: black;
+				color: white;
+				width: 60px;	
+				border: none;
+			}
+		}
+	}
+
+
+}
