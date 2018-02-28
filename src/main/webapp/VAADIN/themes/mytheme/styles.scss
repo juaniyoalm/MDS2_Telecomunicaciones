@@ -6,6 +6,7 @@
 // The actual styles should be defined in mytheme.scss
 
 .mytheme {
+  @include vaadin-app-shell-template;
   @include vaadin-form-template;
   @include addons;
   @include mytheme;
