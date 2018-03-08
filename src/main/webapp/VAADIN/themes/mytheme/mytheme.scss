@@ -90,6 +90,26 @@
 		}
 	}
 
+	.layotuNavbarLogin {
+		background-color: white;
+		margin-top: 55px !important;
+		margin-left: 280px !important;
+		padding: 10px !important;
+		border-radius: 12px;
+		
+		.hLayotuNavbar{
+			background-color: white;
+			
+			.navbarBtn {
+				background: black;
+				color: white;
+				width: 60px;	
+				border: none;
+				box-shadow: none !important;
+			}
+		}
+	}
+
 
 	// CabeceraCibernauta.java
 	
@@ -210,5 +230,122 @@
 		} 
 	
 
+
+	// CabeceraLogin.java
+	
+	.verticalMenuLogeado {
+		
+		margin-top: 55px !important;
+		padding: 10px !important;
+		width: 100% !important;
+		text-align: right !important;
+		margin-left: 180px !important;
+		
+		.clienteBtn {
+			background: none;
+			padding: 8px !important;
+			color: orange;	
+			border: none;
+			box-shadow: none !important;
+		}
+	}
+
+
+	// Cliente.java
+	
+	.layoutBloqueCliente {
+			height: auto;
+			width: $anchoPagina !important;
+		
+			.panelIzqCliente {
+				text-align: left !important;
+				height: auto !important;
+				margin: 0 !important;
+				padding: 0;
+				width: $anchoColumna !important;
+				height: $altoPaneles !important;
+				background-color: black;
+				border-radius: 0;
+				border: none !important;
+				
+				.menuClienteBtn {
+					text-align: left !important;
+					width: 100% !important;
+					height: auto !important;
+					background: orange;
+					margin: 0 !important;
+					padding: 8px !important;
+					color: black;	
+					border: none;
+					box-shadow: none !important;
+					border-radius: 0 !important;
+				}
+			
+				.menuClienteBtn:hover {
+					background: #ff8c00;
+				}
+			}
+	
+			.panelDerCliente {
+				margin: 0;
+				padding: 0;
+				width: $anchoColumna !important;
+				height: $altoPaneles !important;
+				background-color: black;
+				border-radius: 0;
+				border: none !important;
+			}
+	
+			.panelCenCliente {
+				margin: 0;
+				padding: 0;
+				width: 1040px !important;
+				height: $altoPaneles !important;
+				background-color: black;
+				border-radius: 0;
+				border: solid 5px orange !important;
+				
+				.verticalMenuCliente {
+					background-color: white !important;
+					width: 100% !important;
+					height: 100% !important;
+					margin: 0 !important;
+					padding: 10px !important;
+					
+					.menuTabCliente {
+						background-color: white !important;
+						width: 100% !important;
+						height: 100% !important;
+						
+						.verticalPanel {
+							background-color: white !important;
+							width: 100% !important;
+							height: 100% !important;
+						}
+					}
+				}
+				
+				.horPanelCliente {
+					text-align: center !important;
+					width: 100% !important;
+					height: auto !important;
+					margin: auto !important;
+					
+					.ofertaBtnCliente {
+						background: orange;
+						padding: 10px !important;
+						color: black;	
+						border: none;
+						box-shadow: none !important;
+						width: 150px !important;
+						height: 150px !important;
+						margin: 80px !important;
+					}
+				}
+			}
+		} 
+
+
+	
 
 }

@@ -1,15 +1,18 @@
 package com.example.Telecomunicaciones;
 
+import com.vaadin.navigator.Navigator;
 import com.vaadin.server.AbstractErrorMessage.ContentMode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 public class Login extends Window {
+	
 	
 	public Login() {
 		super();
@@ -52,7 +55,15 @@ public class Login extends Window {
 		close.addStyleName("sesionBtn");
 		
 		// Button iniciar sesion
-		Button sesion = new Button("Iniciar sesión", event -> close());
+		Button sesion = new Button("Iniciar sesión", event -> {
+			
+			UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun("Juan"));
+			UI.getCurrent().getNavigator().navigateTo("/Cliente");
+			
+			
+			this.close();
+			
+		});
 		sesion.addStyleName("sesionBtn");
 		
 		horLogin3.addComponent(close);

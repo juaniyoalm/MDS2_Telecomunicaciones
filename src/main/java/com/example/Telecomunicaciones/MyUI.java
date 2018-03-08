@@ -23,8 +23,8 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class MyUI extends UI {
 	
-	Navigator navigator;
-	protected static final String MAINVIEW = "main";
+	public Navigator navigator;
+	protected static final String CLIENTE = "cliente";
 
 
     @Override
@@ -53,7 +53,7 @@ public class MyUI extends UI {
     	
     	//Creamos y registramos las vistas
     	navigator.addView("", new ZonaComun());
-    	//navigator.addView(MAINVIEW, new MainView());
+    	navigator.addView(CLIENTE, new ZonaComun("Cliente"));
 
     }
 
