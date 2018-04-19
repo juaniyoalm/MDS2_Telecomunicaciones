@@ -8,99 +8,37 @@
  <body>
   <vaadin-vertical-layout style-name="verticalMenuCliente" spacing="false" size-full margin="false">
    <vaadin-tab-sheet style-name="menuTabCliente" width="696px" _id="menuTabCliente">
-    <tab caption="Mis Datos" style-name="tab" selected>
+    <tab caption="Nuevo Cliente" style-name="tab" selected>
      <vaadin-vertical-layout style-name="verticalPanel" size-full _id="verticalPanel">
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
+         DNI 
+       </vaadin-label>
+       <vaadin-text-field height="25px"></vaadin-text-field>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout width-full margin>
+       <vaadin-label plain-text>
          Nombre 
        </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
+       <vaadin-text-field height="25px"></vaadin-text-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
          Apellido 1 
        </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
+       <vaadin-text-field height="25px"></vaadin-text-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
          Apellido 2 
        </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
+       <vaadin-text-field height="25px"></vaadin-text-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
-         DNI 
+         Domicilio 
        </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Usuario/Email 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Contraseña 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Dirección 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-    </tab>
-    <tab caption="Modificar Datos">
-     <vaadin-vertical-layout style-name="verticalPanel" size-full _id="verticalPanel2">
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Nombre 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Apellido 1 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         Apellido 2 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout width-full margin>
-       <vaadin-label plain-text>
-         DNI 
-       </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
+       <vaadin-text-field height="25px"></vaadin-text-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
@@ -112,19 +50,38 @@
        <vaadin-label plain-text>
          Contraseña 
        </vaadin-label>
-       <vaadin-text-field height="25px"></vaadin-text-field>
+       <vaadin-password-field height="25px"></vaadin-password-field>
       </vaadin-horizontal-layout>
       <vaadin-horizontal-layout width-full margin>
        <vaadin-label plain-text>
-         Dirección 
+         Repite Contraseña 
        </vaadin-label>
-       <vaadin-label plain-text>
-         Label 
-       </vaadin-label>
+       <vaadin-password-field height="24px"></vaadin-password-field>
       </vaadin-horizontal-layout>
-      <vaadin-button plain-text>
-        Button 
-      </vaadin-button>
+      <vaadin-horizontal-layout width-full margin>
+       <vaadin-label plain-text>
+         IBAN 
+       </vaadin-label>
+       <vaadin-text-field width="184px" height="25px"></vaadin-text-field>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout width-full margin>
+       <vaadin-label plain-text>
+         Servicio 
+       </vaadin-label>
+       <vaadin-combo-box height="25px" data-item-type="java.lang.String">
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-combo-box>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout>
+       <vaadin-button plain-text>
+         Cancelar 
+       </vaadin-button>
+       <vaadin-button plain-text>
+         Aceptar 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
      </vaadin-vertical-layout>
     </tab>
    </vaadin-tab-sheet>

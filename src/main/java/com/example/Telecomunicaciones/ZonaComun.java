@@ -16,15 +16,20 @@ public class ZonaComun extends V_ZonaComun implements View {
 		}
 		
 		public ZonaComun(String login) {
+			
 			Navbar navbar = new Navbar();
 			CabeceraLogin c_login = new CabeceraLogin();
+			
 			Cliente zonaCliente = new Cliente();
+			Comercial zonaComercial = new Comercial();
+			Administrador zonaAdmin = new Administrador();
+			
 			navbar.setStyleName("layotuNavbarLogin");
 			
 			cabeceraComun.addComponent(navbar);
 			cabeceraComun.addComponent(c_login);
 			
-			this.addComponent(zonaCliente);
+			this.addComponent(zonaAdmin);
 			
 		}
 }

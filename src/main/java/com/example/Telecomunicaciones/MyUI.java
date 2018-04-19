@@ -52,7 +52,7 @@ public class MyUI extends UI {
     	navigator = new Navigator(this, this);
     	
     	//Creamos y registramos las vistas
-    	navigator.addView("", new ZonaComun());
+    	navigator.addView("", new ZonaComun("Cliente"));
     	navigator.addView(CLIENTE, new ZonaComun("Cliente"));
 
     }

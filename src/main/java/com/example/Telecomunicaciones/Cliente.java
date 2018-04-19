@@ -7,6 +7,9 @@ public class Cliente extends V_Cliente {
 	public Cliente() {
 		
 		ClienteMisDatos misDatosPanel = new ClienteMisDatos();
+		ClienteMisContratos misContratosPanel = new ClienteMisContratos();
+		ClienteMisFacturas misFacturasPanel = new ClienteMisFacturas();
+		ClienteMisIncidencias misIncidenciasPanel = new ClienteMisIncidencias();
 		panelCenCliente.addComponent(misDatosPanel);
 		
 		// Botones Menu
@@ -19,6 +22,26 @@ public class Cliente extends V_Cliente {
 		misFacturas.setCaption("     Mis Facturas");
 		misIncidencias.setIcon(VaadinIcons.PIN);
 		misIncidencias.setCaption("     Mis Incidencias");
+		
+		misDatos.addClickListener(event -> {
+			panelCenCliente.removeAllComponents();
+			panelCenCliente.addComponent(misDatosPanel);
+		});
+		
+		misContratos.addClickListener(event -> {
+			panelCenCliente.removeAllComponents();
+			panelCenCliente.addComponent(misContratosPanel);
+		});
+		
+		misFacturas.addClickListener(event -> {
+			panelCenCliente.removeAllComponents();
+			panelCenCliente.addComponent(misFacturasPanel);
+		});
+		
+		misIncidencias.addClickListener(event -> {
+			panelCenCliente.removeAllComponents();
+			panelCenCliente.addComponent(misIncidenciasPanel);
+		});
 		
 		
 	}

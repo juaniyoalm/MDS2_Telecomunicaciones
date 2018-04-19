@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout style-name="verticalMenuCliente" spacing="false" size-full>
+   <vaadin-tab-sheet style-name="menuTabCliente" width="696px" _id="menuTabCliente">
+    <tab caption="Mis Incidencias" selected>
+     <vaadin-vertical-layout style-name="verticalPanel" size-full _id="verticalPanel">
+      <vaadin-horizontal-layout width-full margin>
+       <vaadin-grid height="150px" _id="tableIncidenciasG">
+        <table>
+         <colgroup>
+          <col column-id="NIncidencia" sortable="false">
+          <col column-id="DNI" sortable="false">
+         </colgroup>
+         <thead>
+          <tr default>
+           <th plain-text column-ids="NIncidencia">Nº Incidencia</th>
+           <th plain-text column-ids="DNI">DNI</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr item="project1">
+           <td>1</td>
+           <td>11111111A</td>
+          </tr>
+          <tr item="project2">
+           <td>1</td>
+           <td>11111111A</td>
+          </tr>
+          <tr item="project3">
+           <td>1</td>
+           <td>11111111A</td>
+          </tr>
+         </tbody>
+        </table>
+       </vaadin-grid>
+      </vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </tab>
+   </vaadin-tab-sheet>
+   <vaadin-horizontal-layout>
+    <vaadin-button plain-text _id="nuevaIncidenciaBtn">
+      Nueva Incidencia 
+    </vaadin-button>
+    <vaadin-button plain-text _id="teLlamamosBtn">
+      ¿Te llamamos? 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

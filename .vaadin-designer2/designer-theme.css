@@ -1531,6 +1531,34 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
+.menuTabCliente {
+	margin: 10px !important;
+	padding: 10px !important;
+}
+
+.vertDetalleCliente {
+	margin: 20px !important;
+	width: auto !important;
+	height: auto !important;
+}
+
+.v-horizontallayout.v-layout.v-horizontal.v-widget.clienteBtn.v-horizontallayout-clienteBtn.v-has-width.v-has-height {
+	width: auto !important;
+}
+
+.v-slot.v-slot-clienteBtn {
+	text-align: right;
+}
+
+horizontallayout.v-layout.v-horizontal.v-widget.horDetalle.v-horizontallayout-horDetalle.horLogin.v-horizontallayout-horLogin.v-has-width.v-has-height {
+	width: 380px !important;
+	margin: 0 25px !important;
+}
+
+.pNuevoCliente {
+	top: -50px !important;
+}
+
 .mytheme .crud-template .top-bar {
 	background: white;
 	color: #197de1;
@@ -13252,8 +13280,12 @@ div.v-layout.v-horizontal.v-widget {
 
 .mytheme .layoutBloqueCliente .panelCenCliente .verticalMenuCliente .menuTabCliente {
 	background-color: white !important;
-	width: 100% !important;
-	height: 100% !important;
+	width: 600px !important;
+	height: 400px !important;
+}
+
+.mytheme .layoutBloqueCliente .panelCenCliente .verticalMenuCliente .menuTabCliente .tab {
+	padding: 5px !important;
 }
 
 .mytheme .layoutBloqueCliente .panelCenCliente .verticalMenuCliente .menuTabCliente .verticalPanel {

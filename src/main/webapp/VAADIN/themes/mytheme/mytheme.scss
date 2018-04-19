@@ -314,8 +314,12 @@
 					
 					.menuTabCliente {
 						background-color: white !important;
-						width: 100% !important;
-						height: 100% !important;
+						width: 600px !important;
+						height: 400px !important;
+						
+						.tab {
+							padding: 5px !important;
+						}
 						
 						.verticalPanel {
 							background-color: white !important;
@@ -344,8 +348,35 @@
 				}
 			}
 		} 
+	}	
 
+	.menuTabCliente {
+		margin: 10px !important;
+		padding: 10px !important;
+	}
 
+	// Comercial
 	
+	.vertDetalleCliente {
+		margin: 20px !important;
+	 	width: auto !important;
+	 	height: auto !important;
+	}
 
+	.v-horizontallayout.v-layout.v-horizontal.v-widget.clienteBtn.v-horizontallayout-clienteBtn.v-has-width.v-has-height {
+	    width: auto !important;
+	}
+
+	.v-slot.v-slot-clienteBtn {
+    	text-align: right;
+	}
+
+	horizontallayout.v-layout.v-horizontal.v-widget.horDetalle.v-horizontallayout-horDetalle.horLogin.v-horizontallayout-horLogin.v-has-width.v-has-height {
+	    width: 380px !important;
+	    margin: 0 25px !important;
+	}
+
+	.pNuevoCliente {
+		top: -50px !important;
+	}
 }
