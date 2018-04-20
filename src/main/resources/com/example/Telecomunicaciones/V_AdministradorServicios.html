@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout style-name="verticalMenuCliente" spacing="false">
+   <vaadin-vertical-layout size-auto>
+    <vaadin-label plain-text>
+      Zona Administrador 
+    </vaadin-label>
+   </vaadin-vertical-layout>
+   <vaadin-tab-sheet style-name="menuTabCliente" width="727px" _id="menuTabCliente">
+    <tab caption="Fijo / Móvil / Fibra" selected>
+     <vaadin-vertical-layout style-name="verticalPanel" width="724px" height-full _id="verticalPanel">
+      <vaadin-horizontal-layout margin>
+       <vaadin-label width="100px" plain-text>
+         Oferta: 
+       </vaadin-label>
+       <vaadin-combo-box width="400px" data-item-type="java.lang.String">
+        <option item="Option1">Option 1</option>
+        <option item="Option2">Option 2</option>
+        <option item="Option3">Option 3</option>
+       </vaadin-combo-box>
+       <vaadin-button width="150px" plain-text _id="addOfertaBtn">
+         Añadir Oferta 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout>
+       <vaadin-label width="100px" plain-text>
+         Nombre: 
+       </vaadin-label>
+       <vaadin-text-field></vaadin-text-field>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout>
+       <vaadin-label width="100px" plain-text>
+         Precio: 
+       </vaadin-label>
+       <vaadin-text-field></vaadin-text-field>
+      </vaadin-horizontal-layout>
+      <vaadin-horizontal-layout>
+       <vaadin-label width="100px" plain-text>
+         Características: 
+       </vaadin-label>
+       <vaadin-text-area></vaadin-text-area>
+      </vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </tab>
+    <tab caption="TV">
+     <vaadin-vertical-layout style-name="verticalPanel" size-full _id="verticalPanel2">
+      <vaadin-horizontal-layout width-full margin></vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </tab>
+    <tab caption="Combis">
+     <vaadin-vertical-layout style-name="verticalPanel" size-full _id="verticalPanel21">
+      <vaadin-horizontal-layout width-full margin></vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </tab>
+   </vaadin-tab-sheet>
+  </vaadin-vertical-layout>
+ </body>
+</html>

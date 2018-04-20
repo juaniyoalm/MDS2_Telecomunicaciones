@@ -6,8 +6,13 @@ public class Administrador extends V_Administrador {
 
 	public Administrador() {
 		
-		ComercialClientes zonaClientes = new ComercialClientes();
-		panelCenAdmin.addComponent(zonaClientes);
+		AdministradorPrincipal principalPanel = new AdministradorPrincipal();
+		ComercialClientes clientesPanel = new ComercialClientes();
+		AdministradorComerciales comercialesPanel = new AdministradorComerciales();
+		AdministradorIncidencias incidenciasPanel = new AdministradorIncidencias();
+		AdministradorServicios serviciosPanel = new AdministradorServicios();
+		
+		panelCenAdmin.addComponent(principalPanel);
 		// menu botones
 		
 		principal.setIcon(VaadinIcons.USER_CARD);
@@ -20,5 +25,31 @@ public class Administrador extends V_Administrador {
 		incidencias.setCaption("     Incidencias");
 		servicios.setIcon(VaadinIcons.PIN);
 		servicios.setCaption("     Servicios");
+		
+		
+		principal.addClickListener(event -> {
+			panelCenAdmin.removeAllComponents();
+			panelCenAdmin.addComponent(principalPanel);
+		});
+		
+		clientes.addClickListener(event -> {
+			panelCenAdmin.removeAllComponents();
+			panelCenAdmin.addComponent(clientesPanel);
+		});
+		
+		comerciales.addClickListener(event -> {
+			panelCenAdmin.removeAllComponents();
+			panelCenAdmin.addComponent(comercialesPanel);
+		});
+		
+		incidencias.addClickListener(event -> {
+			panelCenAdmin.removeAllComponents();
+			panelCenAdmin.addComponent(incidenciasPanel);
+		});
+		
+		servicios.addClickListener(event -> {
+			panelCenAdmin.removeAllComponents();
+			panelCenAdmin.addComponent(serviciosPanel);
+		});
 	}
 }
