@@ -23,7 +23,6 @@ public class V_ComercialClientes extends VerticalLayout {
 	protected TabSheet menuTabCliente;
 	protected VerticalLayout verticalPanel;
 	protected Button nuevoClienteBtn;
-	protected Grid tablaClientes;
 
 	public V_ComercialClientes() {
 		Design.read(this);
