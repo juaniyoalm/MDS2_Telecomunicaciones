@@ -23,7 +23,7 @@ public class ComercialClientes extends V_ComercialClientes {
 		pv.setStyleName("pNuevoCliente");
 		verticalPanel.addComponent(pv);
 		
-		
+		/*
 		// Crea una tabla a traves de la lista de clientes
 		ArrayList<com.example.telecomunicaciones.bd.orm.Cliente> clientes = comercialBD.cargarClientes();
 		Grid<com.example.telecomunicaciones.bd.orm.Cliente> grid = new Grid<>();
@@ -37,6 +37,7 @@ public class ComercialClientes extends V_ComercialClientes {
 
 		verticalPanel.addComponent(grid);
 		
+		*/
 		/*
 		tablaClientes.addColumn(person -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
