@@ -2,79 +2,47 @@ package com.example.telecomunicaciones.bd;
 
 import java.util.ArrayList;
 
+import org.orm.PersistentException;
+
 import com.example.telecomunicaciones.bd.orm.Cliente;
 import com.example.telecomunicaciones.bd.orm.Comercial;
 import com.example.telecomunicaciones.bd.orm.Factura;
 import com.example.telecomunicaciones.bd.orm.Incidencia;
 import com.example.telecomunicaciones.bd.orm.Servicio;
 
-public interface IAdministrador {
+public interface IAdministrador{
 
-	public default ArrayList<Comercial> cargarComerciales() {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Comercial> cargarComerciales();
+	
+	public  void delComercial(Comercial aComercial);
 
-	public default void delComercial(Comercial aComercial) {
-		throw new UnsupportedOperationException();
-	}
+	public  void addComercial(Comercial aComercial);
+	
+	public  void updateComercial(Comercial aComercial);
 
-	public default void addComercial(Comercial aComercial) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Cliente> cargarClientes();
 
-	public default void updateComercial(Comercial aComercial) {
-		throw new UnsupportedOperationException();
-	}
+	public  void delCliente(Cliente aCliente);
 
-	public default ArrayList<Cliente> cargarClientes() {
-		throw new UnsupportedOperationException();
-	}
+	public  void addCliente(Cliente aCliente);
 
-	public default void delCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void updateCliente(Cliente aCliente);
 
-	public default void addCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Incidencia> cargarIncidencias();
 
-	public default void updateCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void asignarIncidencia(Incidencia aIncidencia, Comercial aComercial);
 
-	public default ArrayList<Incidencia> cargarIncidencias() {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Servicio> cargarServicios();
 
-	public default void asignarIncidencia(Incidencia aIncidencia, Comercial aComercial) {
-		throw new UnsupportedOperationException();
-	}
+	public  void addServicio(Servicio aServicio);
 
-	public default ArrayList<Servicio> cargarServicios() {
-		throw new UnsupportedOperationException();
-	}
-
-	public default void addServicio(Servicio aServicio) {
-		throw new UnsupportedOperationException();
-	}
-
-	public default void modificarServicio(Servicio aServicio) {
-		throw new UnsupportedOperationException();
-	}
-
-	public default void delServicio(Servicio aServicio) {
-		throw new UnsupportedOperationException();
-	}
-
-	public default void updateServiciosPortada(ArrayList<Servicio> aServiciosPortada) {
-		throw new UnsupportedOperationException();
-	}
-
-	public default ArrayList<Servicio> cargarServiciosPortada() {
-		throw new UnsupportedOperationException();
-	}
-
-	public default ArrayList<Factura> cargarFacturas(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void modificarServicio(Servicio aServicio);
+	
+	public  void delServicio(Servicio aServicio);
+	
+	public  void updateServiciosPortada(ArrayList<Servicio> aServiciosPortada);
+	
+	public  ArrayList<Servicio> cargarServiciosPortada();
+	
+	public  ArrayList<Factura> cargarFacturas(Cliente aCliente);
 }

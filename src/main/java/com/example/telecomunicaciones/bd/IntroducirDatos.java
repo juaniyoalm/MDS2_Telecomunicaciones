@@ -5,15 +5,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.orm.PersistentException;
-import org.orm.PersistentTransaction;
 
 import com.example.telecomunicaciones.bd.orm.Administrador;
 import com.example.telecomunicaciones.bd.orm.AdministradorDAO;
 import com.example.telecomunicaciones.bd.orm.Cliente;
-import com.example.telecomunicaciones.bd.orm.ClienteDAO;
 import com.example.telecomunicaciones.bd.orm.Comercial;
-import com.example.telecomunicaciones.bd.orm.MDS2diagramasPersistentManager;
-import com.example.telecomunicaciones.bd.orm.ServicioDAO;
 
 public class IntroducirDatos implements Serializable {
 
@@ -23,8 +19,10 @@ public class IntroducirDatos implements Serializable {
 		Administrador admin = AdministradorDAO.getAdministradorByORMID(1);
 		
 		int dato = 0;
+	
 		
 		System.out.println("Los Clientes actuales son:");
+		
 		
 		ArrayList<Cliente> c = ad.cargarClientes();
 		
@@ -49,7 +47,7 @@ public class IntroducirDatos implements Serializable {
 			nc.setApellido2("Clemente");
 			nc.setEmail("Juaniyo@hola.com");
 			nc.setNif("11111111D");
-			nc.setNombre("JuanCliente3");
+			nc.setNombre("JuanCliente1");
 			nc.setTelefono("999999999");
 			nc.setPassword("1111");
 			nc.setAdministrador(admin);

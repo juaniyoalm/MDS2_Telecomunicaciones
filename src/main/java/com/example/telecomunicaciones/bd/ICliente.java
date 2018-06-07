@@ -9,31 +9,17 @@ import com.example.telecomunicaciones.bd.orm.Servicio;
 
 public interface ICliente {
 
-	public default void bajaCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void bajaCliente(Cliente aCliente);
 
-	public default void modificarDatosCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void modificarDatosCliente(Cliente aCliente);
 
-	public default ArrayList<Incidencia> cargarIncidencias(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Incidencia> cargarIncidencias(Cliente aCliente);
 
-	public default ArrayList<Factura> cargarFacturas(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Factura> cargarFacturas(Cliente aCliente);
 
-	public default boolean nuevaIncidencia(Incidencia aIncidencia) {
-		throw new UnsupportedOperationException();
-	}
+	public  boolean nuevaIncidencia(Incidencia aIncidencia);
 
-	public default ArrayList<Servicio> cargarContratos(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Servicio> cargarContratos(Cliente aCliente);
 
-	public default void teLlamamos(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public  void teLlamamos(Cliente aCliente);
 }

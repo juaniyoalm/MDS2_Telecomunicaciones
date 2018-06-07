@@ -9,35 +9,19 @@ import com.example.telecomunicaciones.bd.orm.Incidencia;
 
 public interface IComercial {
 
-	public default ArrayList<Incidencia> cargarIncidencias(Comercial aComercial) {
-		throw new UnsupportedOperationException();
-	}
+	public  ArrayList<Incidencia> cargarIncidencias(Comercial aComercial);
 
-	public default void NuevaIncidencia(Incidencia aIncidencia) {
-		throw new UnsupportedOperationException();
-	}
+	public void NuevaIncidencia(Incidencia aIncidencia);
 
-	public default void resolverIncidencia(Incidencia aIncidencia) {
-		throw new UnsupportedOperationException();
-	}
+	public void resolverIncidencia(Incidencia aIncidencia);
 
-	public default ArrayList<Cliente> cargarClientes() {
-		throw new UnsupportedOperationException();
-	}
+	public ArrayList<Cliente> cargarClientes();
 
-	public default void delCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public void delCliente(Cliente aCliente);
 
-	public default void addCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public void addCliente(Cliente aCliente);
 
-	public default void updateCliente(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public void updateCliente(Cliente aCliente);
 
-	public default ArrayList<Factura> cargarFacturas(Cliente aCliente) {
-		throw new UnsupportedOperationException();
-	}
+	public ArrayList<Factura> cargarFacturas(Cliente aCliente);
 }
