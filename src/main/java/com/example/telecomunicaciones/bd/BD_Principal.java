@@ -1,7 +1,11 @@
 package com.example.telecomunicaciones.bd;
 
 import java.io.Serializable;
+import java.security.acl.Acl;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
@@ -89,62 +93,185 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	
 	@Override
 	public void updateComercial(Comercial aComercial) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
 		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = ComercialDAO.save(aComercial);
+			t.commit();
+			System.out.println("Comercial actualizado con el nombre de " + aComercial.getNombre());
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Comercial no actualizado");
+			e.printStackTrace();
+		}
 	}
+	
 	@Override
 	public ArrayList<Incidencia> cargarIncidencias() {
-		// TODO Auto-generated method stub
+		Incidencia[] c;
+		
+		try {
+			c = IncidenciaDAO.listIncidenciaByQuery("ID > 0", "ID");
+			System.out.println("La consulta se ha realizado");
+			
+			ArrayList<Incidencia> inicidencias = new ArrayList<>();
+			
+			for (int i = 0; i < c.length; i++) {
+				inicidencias.add(c[i]);
+			}
+			
+			return inicidencias;
+			
+		} catch (PersistentException e) {
+			System.out.println("La consulta ha fallado");
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
+	
 	@Override
 	public void asignarIncidencia(Incidencia aIncidencia, Comercial aComercial) {
-		// TODO Auto-generated method stub
-		
+		aComercial.incidencia.add(aIncidencia);
+		updateComercial(aComercial);
 	}
+	
 	@Override
 	public ArrayList<Servicio> cargarServicios() {
-		// TODO Auto-generated method stub
+		Servicio[] c;
+		
+		try {
+			c = ServicioDAO.listServicioByQuery("ID > 0", "ID");
+			System.out.println("La consulta se ha realizado");
+			
+			ArrayList<Servicio> servicios = new ArrayList<>();
+			
+			for (int i = 0; i < c.length; i++) {
+				servicios.add(c[i]);
+			}
+			
+			return servicios;
+			
+		} catch (PersistentException e) {
+			System.out.println("La consulta ha fallado");
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
+	
 	@Override
 	public void addServicio(Servicio aServicio) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = ServicioDAO.save(aServicio);
+			t.commit();
+			System.out.println("Servicio añadido");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Servicio no añadido");
+			e.printStackTrace();
+		}
 		
 	}
+	
 	@Override
 	public void modificarServicio(Servicio aServicio) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = ServicioDAO.save(aServicio);
+			t.commit();
+			System.out.println("Servicio modificado");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Servicio no modificado");
+			e.printStackTrace();
+		}
 		
 	}
+	
 	@Override
 	public void delServicio(Servicio aServicio) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = ServicioDAO.delete(aServicio);
+			t.commit();
+			System.out.println("Servicio eliminado");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Servicio no eliminado");
+			e.printStackTrace();
+		}
 		
 	}
+	
 	@Override
 	public void updateServiciosPortada(ArrayList<Servicio> aServiciosPortada) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public ArrayList<Servicio> cargarServiciosPortada() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	@Override
 	public ArrayList<Incidencia> cargarIncidencias(Comercial aComercial) {
-		// TODO Auto-generated method stub
-		return null;
+		Incidencia[] aux = aComercial.incidencia.toArray();
+		ArrayList<Incidencia> inc = null;
+		
+		for (int i = 0; i < aux.length; i++) {
+			inc.add(aux[i]);
+		}
+		return inc;
 	}
+	
 	@Override
 	public void NuevaIncidencia(Incidencia aIncidencia) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.save(aIncidencia);
+			t.commit();
+			System.out.println("Incidencia añadida");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Incidencia no añadida");
+			e.printStackTrace();
+		}
 		
 	}
+	
 	@Override
 	public void resolverIncidencia(Incidencia aIncidencia) {
-		// TODO Auto-generated method stub
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.delete(aIncidencia);
+			t.commit();
+			System.out.println("Incidencia resuelta");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Incidencia no resuelta");
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -208,69 +335,130 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	
 	@Override
 	public void updateCliente(Cliente aCliente) {
-		// Incidencia que crea el cliente para modificar datos
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = ClienteDAO.save(aCliente);
+			t.commit();
+			System.out.println("Cliente modificado con el nombre de " + aCliente.getNombre());
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Cliente no modificado");
+			e.printStackTrace();
+		}
 		
 	}
 	
 	@Override
 	public void bajaCliente(Cliente aCliente) {
-		// Solicita una incidencia de baja
+		Date fecha = new Date();
 		
+		Incidencia incidencia = IncidenciaDAO.createIncidencia();
+		incidencia.setCliente(aCliente);
+		incidencia.setCorreoCliente(aCliente.getEmail());
+		incidencia.setAsunto("Baja");
+		incidencia.setTipoIncidencia("Baja");
+		incidencia.setEstado("Sin Asignar");
+		incidencia.setFecha(fecha);
+		incidencia.setDescripcion("El cliente" + aCliente.getNombre()+ " con DNI " + aCliente.getNif() + " solicita la baja del servicio.");
+		
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.save(incidencia);
+			t.commit();
+			System.out.println("Incidencia de baja creada");
+		} catch (PersistentException e) {
+			System.out.println("Incidencia de baja no creada");
+			e.printStackTrace();
+		}
 	}
+	
 	@Override
 	public void modificarDatosCliente(Cliente aCliente) {
-		// TODO Auto-generated method stub
+		Date fecha = new Date();
+		
+		Incidencia incidencia = IncidenciaDAO.createIncidencia();
+		incidencia.setCliente(aCliente);
+		incidencia.setCorreoCliente(aCliente.getEmail());
+		incidencia.setAsunto("Modificar Datos");
+		incidencia.setTipoIncidencia("Modificar");
+		incidencia.setEstado("Sin Asignar");
+		incidencia.setFecha(fecha);
+		incidencia.setDescripcion("El cliente" + aCliente.getNombre()+ " con DNI " + aCliente.getNif() + " solicita la modificación de los siguientes datos:\n"
+				+ "Apellido 1: " + aCliente.getApellido1()
+				+ "\nApellido 2: " + aCliente.getApellido2()
+				+ "\nNombre: " + aCliente.getNombre()
+				+ "\nDNI: " + aCliente.getNif()
+				+ "\nEmail: " + aCliente.getEmail());
+		
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.save(incidencia);
+			t.commit();
+			System.out.println("Incidencia de baja creada");
+		} catch (PersistentException e) {
+			System.out.println("Incidencia de baja no creada");
+			e.printStackTrace();
+		}
 		
 	}
 	
 	@Override
 	public ArrayList<Incidencia> cargarIncidencias(Cliente aCliente) {
 		Incidencia[] in;
+			
+		in = aCliente.incidencia.toArray();
+		System.out.println("La consulta se ha realizado");
+		ArrayList<Incidencia> incidencias = new ArrayList<>();
 		
-		try {
-			in = IncidenciaDAO.listIncidenciaByQuery("ID > 0", "ID");
-			System.out.println("La consulta se ha realizado");
-			ArrayList<Incidencia> incidencias = new ArrayList<>();
-			
-			for (int i = 0; i < in.length; i++) {
-				incidencias.add(in[i]);
-			}
-			
-			return incidencias;
-			
-		} catch (PersistentException e) {
-			System.out.println("La consulta ha fallado");
-			e.printStackTrace();
+		for (int i = 0; i < in.length; i++) {
+			incidencias.add(in[i]);
 		}
-		return null;
+		
+		return incidencias;
+
 	}
 	
 	@Override
 	public ArrayList<Factura> cargarFacturas(Cliente aCliente) {
 		Factura[] in;
 		
-		try {
-			in = FacturaDAO.listFacturaByQuery("ClienteIDCliente = " + aCliente.getIDCliente(), "ID");
-			System.out.println("La consulta se ha realizado");
-			ArrayList<Factura> facturas = new ArrayList<>();
+		in = aCliente.factura.toArray();
+		System.out.println("La consulta se ha realizado");
+		ArrayList<Factura> facturas = new ArrayList<>();
 			
-			for (int i = 0; i < in.length; i++) {
-				facturas.add(in[i]);
-			}
-			
-			return facturas;
-			
-		} catch (PersistentException e) {
-			System.out.println("La consulta ha fallado");
-			e.printStackTrace();
+		for (int i = 0; i < in.length; i++) {
+			facturas.add(in[i]);
 		}
-		return null;
+			
+		return facturas;
 	}
 	
 	@Override
 	public boolean nuevaIncidencia(Incidencia aIncidencia) {
-		// TODO Auto-generated method stub
-		return false;
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.save(aIncidencia);
+			t.commit();
+			System.out.println("Incidencia añadida");
+			MDS2diagramasPersistentManager.instance().disposePersistentManager();
+		} catch (PersistentException e) {
+			System.out.println("Incidencia no añadida");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 	
 	@Override
@@ -290,7 +478,29 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	
 	@Override
 	public void teLlamamos(Cliente aCliente) {
-		// TODO Auto-generated method stub
+		Date fecha = new Date();
+		
+		Incidencia incidencia = IncidenciaDAO.createIncidencia();
+		incidencia.setCliente(aCliente);
+		incidencia.setCorreoCliente(aCliente.getEmail());
+		incidencia.setAsunto("Llamada");
+		incidencia.setTipoIncidencia("Llamada");
+		incidencia.setEstado("Sin Asignar");
+		incidencia.setFecha(fecha);
+		incidencia.setDescripcion("El cliente" + aCliente.getNombre()+ " con DNI " + aCliente.getNif() + " solicita que le llamemos al telefono " + aCliente.getTelefono());
+		
+		PersistentTransaction t;
+		boolean res = false;
+		
+		try {
+			t = MDS2diagramasPersistentManager.instance().getSession().beginTransaction();
+			res = IncidenciaDAO.save(incidencia);
+			t.commit();
+			System.out.println("Incidencia de llamada creada");
+		} catch (PersistentException e) {
+			System.out.println("Incidencia de llamada no creada");
+			e.printStackTrace();
+		}
 		
 	}
 }
