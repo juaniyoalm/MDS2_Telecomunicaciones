@@ -21,7 +21,7 @@ public class ComercialNew_ModCliente extends V_ComercialNew_ModCliente{
 		cliente.setAdministrador(ad.getAdmin());
 		
 		ad.addCliente(cliente);
-	
+		
 	}
 	
 	public ComercialNew_ModCliente(com.example.telecomunicaciones.bd.orm.Cliente cliente) {
