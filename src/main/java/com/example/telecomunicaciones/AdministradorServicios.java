@@ -39,5 +39,7 @@ public class AdministradorServicios extends V_AdministradorServicios {
 			addOfertaBtn.addClickListener(event -> {
 				pv.setPopupVisible(true);
 			});
+			
+			verticalPanel.addComponent(grid);
 	}
 }
