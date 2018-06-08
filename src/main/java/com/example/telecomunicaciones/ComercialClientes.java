@@ -38,14 +38,13 @@ public class ComercialClientes extends V_ComercialClientes {
 		
 		// Crea una tabla a traves de la lista de clientes
 		ArrayList<com.example.telecomunicaciones.bd.orm.Cliente> clientes = comercialBD.cargarClientes();
+		System.out.println("ID: " + clientes.get(0).getIDCliente());
 		Grid<com.example.telecomunicaciones.bd.orm.Cliente> grid = new Grid<>();
-		grid.setItems(clientes);
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getIDCliente).setCaption("ID");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getNombre).setCaption("Nombre");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getApellido1).setCaption("Apellido 1");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getApellido2).setCaption("Apellido 2");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getNif).setCaption("DNI");
-		
 		grid.addColumn(Cliente -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
 			    	  	Cliente c = (Cliente)clickEvent.getItem();
@@ -65,6 +64,8 @@ public class ComercialClientes extends V_ComercialClientes {
 		nuevoClienteBtn.addClickListener(event -> {
 			pv.setPopupVisible(true);
 		});
+		
+		grid.setItems(clientes);
 		
 		grid.setWidth("-1");
 		grid.setSizeFull();

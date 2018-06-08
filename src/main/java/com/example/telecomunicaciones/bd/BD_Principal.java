@@ -37,25 +37,14 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	
 	@Override
 	public ArrayList<Comercial> cargarComerciales() {
-		Comercial[] c;
-		
 		try {
-			c = ComercialDAO.listComercialByQuery("IDComercial > 0", "IDComercial");
+			ArrayList<Comercial> comerciales = (ArrayList<Comercial>) ComercialDAO.queryComercial("IDComercial > 0", "IDComercial");
 			System.out.println("La consulta se ha realizado");
-			
-			ArrayList<Comercial> comerciales = new ArrayList<>();
-			
-			for (int i = 0; i < c.length; i++) {
-				comerciales.add(c[i]);
-			}
-			
 			return comerciales;
-			
 		} catch (PersistentException e) {
 			System.out.println("La consulta ha fallado");
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 	
@@ -279,25 +268,15 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	
 	@Override
 	public ArrayList<Cliente> cargarClientes() {
-		Cliente[] c;
-		
 		try {
-			c = ClienteDAO.listClienteByQuery("IDCliente > 0", "IDCliente");
-			System.out.println("La consulta se ha realizado");
-			
-			ArrayList<Cliente> clientes = new ArrayList<>();
-			
-			for (int i = 0; i < c.length; i++) {
-				clientes.add(c[i]);
-			}
-			
-			return clientes;
-			
+			ArrayList<Cliente> clientes = (ArrayList<Cliente>) ClienteDAO.queryCliente("IDCliente > 0", "IDCliente");;
+			System.out.println("La consulta se ha realizado");	
+			System.out.println("ID: " + clientes.get(0).getIDCliente());
+			return clientes;	
 		} catch (PersistentException e) {
 			System.out.println("La consulta ha fallado");
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 	
@@ -511,33 +490,7 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 	@Override
 	public int iniciarSesion(String aEmail, String aPassword) {
 		
-		// Comprobamos si es cliente
-		/*
-		ArrayList<Cliente> clients = cargarClientes();
-		for (Cliente cliente : clients) {
-			if (cliente!=null && cliente.getEmail().equals(aEmail) && cliente.getPassword().equals(aPassword)) 
-				return 1;
-		}
-		
-		ArrayList<Comercial> comerciales = cargarComerciales();
-		for (Comercial cliente : comerciales) {
-			if (cliente!=null && cliente.getEmail().equals(aEmail) && cliente.getPassword().equals(aPassword)) 
-				return 2;
-		}
-		
-		Administrador a;
-		try {
-			a = AdministradorDAO.getAdministradorByORMID(1);
-			if( a != null && a.getEmail().equals(aEmail) && a.getPassword().equals(aPassword));
-				return 3;
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		*/
-		
-		
+			
 		try {
 			Cliente c = (Cliente) ClienteDAO.loadClienteByQuery("Email='" + aEmail + "'", "IDCliente");
 			if (c!=null && c.getPassword().equals(aPassword)) return 1;
