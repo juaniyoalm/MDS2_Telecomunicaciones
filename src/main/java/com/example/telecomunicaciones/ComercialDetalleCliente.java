@@ -1,10 +1,17 @@
 package com.example.telecomunicaciones;
 
+import com.example.telecomunicaciones.bd.BD_Principal;
+import com.example.telecomunicaciones.bd.ICliente;
+import com.example.telecomunicaciones.bd.IComercial;
+import com.example.telecomunicaciones.bd.orm.Cliente;
+import com.example.telecomunicaciones.bd.orm.Servicio;
+import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.PasswordField;
+import com.vaadin.ui.PopupView;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -13,7 +20,7 @@ import com.vaadin.ui.Window;
 public class ComercialDetalleCliente extends Window {
 
 	
-	public ComercialDetalleCliente() {
+	public ComercialDetalleCliente(Cliente c) {
 		super();
 		center();
 		
@@ -25,9 +32,13 @@ public class ComercialDetalleCliente extends Window {
 		this.setWidth("500px");
 		this.setHeight("600px");
 		
+		ICliente clienteBD = new BD_Principal();
+		
+		this.addStyleName("DetalleCliente");
 		
 		VerticalLayout vertDetalleCliente = new VerticalLayout();
 		vertDetalleCliente.addStyleName("vertDetalleCliente");
+
 		
 		vertDetalleCliente.addComponent(new Label("Detalle de cliente"));
 		
@@ -48,7 +59,7 @@ public class ComercialDetalleCliente extends Window {
 		horDetalle1.addStyleName("horDetalle");
 		horDetalle1.setSizeFull();
 		
-		Label rfNombre = new Label("Juan");
+		Label rfNombre = new Label(c.getNombre());
 		rfNombre.setWidth("280px");
 		
 		horDetalle1.addComponent(rfNombre);
@@ -63,7 +74,7 @@ public class ComercialDetalleCliente extends Window {
 		horDetalle2.addStyleName("horDetalle");
 		horDetalle2.setSizeFull();
 		
-		Label rfApellidos = new Label("Juan");
+		Label rfApellidos = new Label(c.getApellido1() + " " + c.getApellido2());
 		rfApellidos.setWidth("280px");
 		
 		horDetalle2.addComponent(rfApellidos);
@@ -78,7 +89,7 @@ public class ComercialDetalleCliente extends Window {
 		horDetalle3.addStyleName("horDetalle");
 		horDetalle3.setSizeFull();
 		
-		Label rfDomicilio = new Label("Callo lolo");
+		Label rfDomicilio = new Label("Almeria");
 		rfDomicilio.setWidth("280px");
 		
 		horDetalle3.addComponent(rfDomicilio);
@@ -93,7 +104,7 @@ public class ComercialDetalleCliente extends Window {
 		horDetalle4.addStyleName("horDetalle");
 		horDetalle4.setSizeFull();
 		
-		Label rfEmail = new Label("juan@hola.com");
+		Label rfEmail = new Label(c.getEmail());
 		rfEmail.setWidth("280px");
 		
 		horDetalle4.addComponent(rfEmail);
@@ -123,8 +134,10 @@ public class ComercialDetalleCliente extends Window {
 		horDetalle6.addStyleName("horDetalle");
 		horDetalle6.setSizeFull();
 		
-		ComboBox<String> rfServicio = new ComboBox<String>();
+		ComboBox<Servicio> rfServicio = new ComboBox<Servicio>();
 		rfServicio.setWidth("280px");
+		rfServicio.setItemCaptionGenerator(Servicio::getNombre);
+		rfServicio.setItems(clienteBD.cargarContratos(c));
 		
 		horDetalle6.addComponent(rfServicio);
 		horDetalle6.addStyleName("horDetalle");
@@ -134,11 +147,11 @@ public class ComercialDetalleCliente extends Window {
 		Button close = new Button("Cerrar", event -> close());
 		close.addStyleName("sesionBtn");
 		
-		// Button iniciar sesion
+		// Button Modificar
 		Button modificar = new Button("Modificar", event -> {
 			
-			//UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun("Juan"));
-			//UI.getCurrent().getNavigator().navigateTo("/Cliente");
+			UI.getCurrent().getNavigator().addView("/ModCliente", (View) new ComercialNew_ModCliente(c));
+			UI.getCurrent().getNavigator().navigateTo("/ModCliente");
 			
 			this.close();
 			

@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import com.example.telecomunicaciones.bd.BD_Principal;
 import com.example.telecomunicaciones.bd.IAdministrador;
 import com.example.telecomunicaciones.bd.IComercial;
+import com.example.telecomunicaciones.bd.orm.Cliente;
+import com.vaadin.shared.ui.grid.ColumnResizeMode;
+import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.PopupView;
 import com.vaadin.ui.UI;
@@ -43,13 +46,15 @@ public class ComercialClientes extends V_ComercialClientes {
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getApellido2).setCaption("Apellido 2");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Cliente::getNif).setCaption("DNI");
 		
-		grid.addColumn(person -> "Ver",
+		grid.addColumn(Cliente -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
-			    		ComercialDetalleCliente dc = new ComercialDetalleCliente();
+			    	  	Cliente c = (Cliente)clickEvent.getItem();
+			    		ComercialDetalleCliente dc = new ComercialDetalleCliente(c);
 
 			    		// Set window position.
 			    		dc.setPositionX(460);
 			    		dc.setPositionY(120);
+			    		dc.setWidth("650px");
 			    		
 			    		UI.getCurrent().addWindow(dc);
 			    }));
@@ -61,7 +66,9 @@ public class ComercialClientes extends V_ComercialClientes {
 			pv.setPopupVisible(true);
 		});
 		
-
+		grid.setWidth("-1");
+		grid.setSizeFull();
+		grid.setColumnResizeMode(ColumnResizeMode.ANIMATED);
 		verticalPanel.addComponent(grid);
 	}
 }

@@ -55,7 +55,7 @@ public class AdministradorIncidenciasAsignar extends Window {
 		// Button iniciar sesion
 		Button sesion = new Button("Iniciar sesión", event -> {
 			
-			UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun("Juan"));
+			UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun());
 			UI.getCurrent().getNavigator().navigateTo("/Cliente");
 			
 			

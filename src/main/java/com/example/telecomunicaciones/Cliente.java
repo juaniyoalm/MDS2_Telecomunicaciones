@@ -4,7 +4,7 @@ import com.vaadin.icons.VaadinIcons;
 
 public class Cliente extends V_Cliente {
 	
-	public Cliente() {
+	public Cliente(com.example.telecomunicaciones.bd.orm.Cliente cliente) {
 		
 		ClienteMisDatos misDatosPanel = new ClienteMisDatos();
 		ClienteMisContratos misContratosPanel = new ClienteMisContratos();

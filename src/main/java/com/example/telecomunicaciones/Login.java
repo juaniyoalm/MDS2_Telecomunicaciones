@@ -1,5 +1,10 @@
 package com.example.telecomunicaciones;
 
+import com.example.telecomunicaciones.bd.BD_Principal;
+import com.example.telecomunicaciones.bd.ICibernauta;
+import com.example.telecomunicaciones.bd.orm.Administrador;
+import com.example.telecomunicaciones.bd.orm.Cliente;
+import com.example.telecomunicaciones.bd.orm.ClienteDAO;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.server.AbstractErrorMessage.ContentMode;
 import com.vaadin.ui.Button;
@@ -13,6 +18,7 @@ import com.vaadin.ui.Window;
 
 public class Login extends Window {
 	
+	ICibernauta ciber = new BD_Principal();
 	
 	public Login() {
 		super();
@@ -57,8 +63,30 @@ public class Login extends Window {
 		// Button iniciar sesion
 		Button sesion = new Button("Iniciar sesión", event -> {
 			
-			UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun("Juan"));
-			UI.getCurrent().getNavigator().navigateTo("/Cliente");
+			int res = ciber.iniciarSesion(tf.getValue(), pf.getValue());
+			
+			if (res == 1) {
+				System.out.println("Es un cliente");
+				Cliente c = ciber.iniciarCliente(tf.getValue(), pf.getValue());
+				UI.getCurrent().getNavigator().addView("/Cliente", new ZonaComun(c));
+				UI.getCurrent().getNavigator().navigateTo("/Cliente");
+			}
+			else if (res == 2) {
+				System.out.println("Es un comercial");
+				com.example.telecomunicaciones.bd.orm.Comercial c = ciber.iniciarComercial(tf.getValue(), pf.getValue());
+				UI.getCurrent().getNavigator().addView("/Comercial", new ZonaComun(c));
+				UI.getCurrent().getNavigator().navigateTo("/Comercial");
+			}
+			else if (res == 3) {
+				System.out.println("Es un admin");
+				Administrador a = ciber.iniciarAdmin(tf.getValue(), pf.getValue());
+				UI.getCurrent().getNavigator().addView("/Admin", new ZonaComun(a));
+				UI.getCurrent().getNavigator().navigateTo("/Admin");
+			}
+			else if (res == 0){
+				
+				System.out.println("No es nada");
+			}
 			
 			
 			this.close();
@@ -79,4 +107,5 @@ public class Login extends Window {
 		
 		setContent(vertLogin);
 	}
+	
 }

@@ -4,7 +4,7 @@ import com.vaadin.icons.VaadinIcons;
 
 public class Administrador extends V_Administrador {
 
-	public Administrador() {
+	public Administrador(com.example.telecomunicaciones.bd.orm.Administrador admin) {
 		
 		AdministradorPrincipal principalPanel = new AdministradorPrincipal();
 		ComercialClientes clientesPanel = new ComercialClientes();

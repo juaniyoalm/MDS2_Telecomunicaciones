@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.orm.PersistentException;
 
+import com.example.telecomunicaciones.bd.orm.Administrador;
 import com.example.telecomunicaciones.bd.orm.Cliente;
 import com.example.telecomunicaciones.bd.orm.Comercial;
 import com.example.telecomunicaciones.bd.orm.Factura;
@@ -45,4 +46,6 @@ public interface IAdministrador{
 	public  ArrayList<Servicio> cargarServiciosPortada();
 	
 	public  ArrayList<Factura> cargarFacturas(Cliente aCliente);
+	
+	public Administrador getAdmin();
 }

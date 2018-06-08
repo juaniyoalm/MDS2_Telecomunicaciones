@@ -4,7 +4,7 @@ import com.vaadin.icons.VaadinIcons;
 
 public class Comercial extends V_Comercial {
 
-	public Comercial() {
+	public Comercial(com.example.telecomunicaciones.bd.orm.Comercial comercial) {
 		
 		ComercialPrincipal principalPanel = new ComercialPrincipal();
 		ComercialClientes clientesPanel = new ComercialClientes();

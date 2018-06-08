@@ -10,6 +10,8 @@ import java.util.Date;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.example.telecomunicaciones.bd.orm.Administrador;
+import com.example.telecomunicaciones.bd.orm.AdministradorDAO;
 import com.example.telecomunicaciones.bd.orm.Cliente;
 import com.example.telecomunicaciones.bd.orm.ClienteDAO;
 import com.example.telecomunicaciones.bd.orm.Comercial;
@@ -502,5 +504,150 @@ public class BD_Principal implements ICibernauta, ICliente, IComercial, IAdminis
 			e.printStackTrace();
 		}
 		
+	}
+	
+	// ICIBERNAUTA
+
+	@Override
+	public int iniciarSesion(String aEmail, String aPassword) {
+		
+		// Comprobamos si es cliente
+		/*
+		ArrayList<Cliente> clients = cargarClientes();
+		for (Cliente cliente : clients) {
+			if (cliente!=null && cliente.getEmail().equals(aEmail) && cliente.getPassword().equals(aPassword)) 
+				return 1;
+		}
+		
+		ArrayList<Comercial> comerciales = cargarComerciales();
+		for (Comercial cliente : comerciales) {
+			if (cliente!=null && cliente.getEmail().equals(aEmail) && cliente.getPassword().equals(aPassword)) 
+				return 2;
+		}
+		
+		Administrador a;
+		try {
+			a = AdministradorDAO.getAdministradorByORMID(1);
+			if( a != null && a.getEmail().equals(aEmail) && a.getPassword().equals(aPassword));
+				return 3;
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		*/
+		
+		
+		try {
+			Cliente c = (Cliente) ClienteDAO.loadClienteByQuery("Email='" + aEmail + "'", "IDCliente");
+			if (c!=null && c.getPassword().equals(aPassword)) return 1;
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Comercial c = (Comercial) ComercialDAO.loadComercialByQuery("Email='" + aEmail + "'", "IDComercial");
+			if (c!=null && c.getPassword().equals(aPassword)) return 2;
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Administrador c = (Administrador) AdministradorDAO.loadAdministradorByQuery("Email='" + aEmail + "'", "IDAdmin");
+			if (c!=null && c.getPassword().equals(aPassword))return 3;
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
+	
+	@Override
+	public Cliente iniciarCliente(String aEmail, String aPassword) {
+		try {
+			
+			return (Cliente) ClienteDAO.queryCliente("Email='" + aEmail + "'", "IDCliente").get(0);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	
+		return null;
+	}
+
+	@Override
+	public Comercial iniciarComercial(String aEmail, String aPassword) {
+		try {
+			return (Comercial) ComercialDAO.queryComercial("Email='" + aEmail + "'", "IDComercial").get(0);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	
+		return null;
+	}
+
+	@Override
+	public Administrador iniciarAdmin(String aEmail, String aPassword) {
+		try {
+			return (Administrador) AdministradorDAO.queryAdministrador("Email='" + aEmail + "'", "IDAdmin").get(0);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}	
+		return null;
+	}
+
+	@Override
+	public ArrayList<Servicio> consultarServicioPortada() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void teLlamamos(String aNombre, String aTelefono) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Servicio> cargarOfertasFijo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Servicio> cargarOfertasFibra() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Servicio> cargarOfertasMovil() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Servicio> cargarOfertasTV() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Servicio> cargarOfertasCombi() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void restorePassword(String aEmail) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public Administrador getAdmin() {
+		try {
+			return AdministradorDAO.getAdministradorByORMID(1);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
