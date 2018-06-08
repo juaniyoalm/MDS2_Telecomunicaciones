@@ -36,7 +36,7 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getApellido2).setCaption("Apellido 2");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getNif).setCaption("DNI");
 				
-		tablaComerciales.addColumn(person -> "Ver",
+		grid.addColumn(person -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
 			    		AdministradorDetalleComercial dc = new AdministradorDetalleComercial();
 
@@ -46,12 +46,13 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 			    		
 			    		UI.getCurrent().addWindow(dc);
 			    }));
-		tablaComerciales.addColumn(person -> "Delete",
+		grid.addColumn(person -> "Delete",
 			      new ButtonRenderer(clickEvent -> {
 			    }));
 		
 		nuevoComercialBtn.addClickListener(event -> {
 			pv.setPopupVisible(true);
 		});
+		verticalPanel.addComponent(grid);
 	}
 }
