@@ -12,6 +12,8 @@ import com.vaadin.ui.renderers.ButtonRenderer;
 public class AdministradorComerciales extends V_AdministradorComerciales {
 	
 	IAdministrador administradorBD;
+	
+	Comercial c;
 
 	public AdministradorComerciales() {
 		Inicializar();
@@ -20,7 +22,7 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 	private void Inicializar() {
 		
 		administradorBD = new BD_Principal();
-	
+		
 		AdministradorNew_ModComercial nc = new AdministradorNew_ModComercial();
 		PopupView pv = new PopupView(null, nc);
 		pv.setStyleName("pNuevoCliente");
@@ -36,12 +38,12 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getApellido2).setCaption("Apellido 2");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getNif).setCaption("DNI");
 		
-		/*
-		* como le pasamos el comercial de la fila a la ventanita detalle comercial????
-		*/
+		// como le pasamos el comercial de la fila a la ventanita detalle comercial????
 		grid.addColumn(person -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
-			    		AdministradorDetalleComercial dc = new AdministradorDetalleComercial();
+			    	  com.example.telecomunicaciones.bd.orm.Comercial c = (com.example.telecomunicaciones.bd.orm.Comercial) clickEvent.getItem();
+
+			    		AdministradorDetalleComercial dc = new AdministradorDetalleComercial(c);
 
 			    		// Set window position.
 			    		dc.setPositionX(460);
@@ -49,6 +51,7 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 			    		
 			    		UI.getCurrent().addWindow(dc);
 			    }));
+		
 		grid.addColumn(person -> "Delete",
 			      new ButtonRenderer(clickEvent -> {
 			    }));
@@ -56,6 +59,7 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 		nuevoComercialBtn.addClickListener(event -> {
 			pv.setPopupVisible(true);
 		});
+		
 		verticalPanel.addComponent(grid);
 	}
 }
