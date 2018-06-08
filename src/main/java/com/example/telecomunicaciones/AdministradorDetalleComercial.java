@@ -1,5 +1,7 @@
 package com.example.telecomunicaciones;
 
+import com.example.telecomunicaciones.bd.IAdministrador;
+import com.example.telecomunicaciones.bd.orm.Comercial;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.HorizontalLayout;
@@ -8,8 +10,17 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 public class AdministradorDetalleComercial extends Window {
-	public AdministradorDetalleComercial() {
-		super();
+	
+	IAdministrador administradorBD;
+	Comercial comercialEnDetalle;
+	
+	public AdministradorDetalleComercial(Comercial c) {
+		this.comercialEnDetalle = c;
+		inicializar();
+	}
+	
+	private void inicializar() {
+	
 		center();
 		
 		setClosable(false);
@@ -35,14 +46,14 @@ public class AdministradorDetalleComercial extends Window {
 
 		
 		//Nombre
-		Label tfNombre = new Label("Nombre:");
+		Label tfNombre = new Label("Nombre");
 		tfNombre.setWidth("280px");
 		
 		horDetalle1.addComponent(tfNombre);
 		horDetalle1.addStyleName("horDetalle");
 		horDetalle1.setSizeFull();
 		
-		Label rfNombre = new Label("Juan");
+		Label rfNombre = new Label(comercialEnDetalle.getNombre());
 		rfNombre.setWidth("280px");
 		
 		horDetalle1.addComponent(rfNombre);
@@ -57,7 +68,7 @@ public class AdministradorDetalleComercial extends Window {
 		horDetalle2.addStyleName("horDetalle");
 		horDetalle2.setSizeFull();
 		
-		Label rfApellidos = new Label("Juan");
+		Label rfApellidos = new Label(comercialEnDetalle.getApellido1()+" "+comercialEnDetalle.getApellido2());
 		rfApellidos.setWidth("280px");
 		
 		horDetalle2.addComponent(rfApellidos);
@@ -65,14 +76,14 @@ public class AdministradorDetalleComercial extends Window {
 		horDetalle2.setSizeFull();
 		
 		//Domicilio
-		Label tfDomicilio = new Label("Domicilio:");
+		Label tfDomicilio = new Label("Email:");
 		tfDomicilio.setWidth("280px");
 		
 		horDetalle3.addComponent(tfDomicilio);
 		horDetalle3.addStyleName("horDetalle");
 		horDetalle3.setSizeFull();
 		
-		Label rfDomicilio = new Label("Callo lolo");
+		Label rfDomicilio = new Label(comercialEnDetalle.getEmail());
 		rfDomicilio.setWidth("280px");
 		
 		horDetalle3.addComponent(rfDomicilio);
