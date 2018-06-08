@@ -28,7 +28,9 @@ public class AdministradorIncidencias extends V_AdministradorIncidencias {
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Incidencia::getDescripcion).setCaption("Descripcion");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Incidencia::getFecha).setCaption("Fecha");
 
-		
+		/*
+		* por que tabla incidencias s e y a???????
+		*/
 		tableIncidenciasS.addColumn(person -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
 			    		ComercialDetalleIncidencia di = new ComercialDetalleIncidencia();
@@ -70,5 +72,7 @@ public class AdministradorIncidencias extends V_AdministradorIncidencias {
 			    		
 			    		UI.getCurrent().addWindow(di);
 			    }));
+		
+		verticalPanel.addComponent(grid);
 	}
 }
