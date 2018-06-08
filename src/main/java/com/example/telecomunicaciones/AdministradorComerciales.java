@@ -35,7 +35,10 @@ public class AdministradorComerciales extends V_AdministradorComerciales {
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getApellido1).setCaption("Apellido 1");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getApellido2).setCaption("Apellido 2");
 		grid.addColumn(com.example.telecomunicaciones.bd.orm.Comercial::getNif).setCaption("DNI");
-				
+		
+		/*
+		* como le pasamos el comercial de la fila a la ventanita detalle comercial????
+		*/
 		grid.addColumn(person -> "Ver",
 			      new ButtonRenderer(clickEvent -> {
 			    		AdministradorDetalleComercial dc = new AdministradorDetalleComercial();
